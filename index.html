@@ -10,100 +10,108 @@
     <link rel="stylesheet" href="css/main.css">
 </head>
 <body>
-    <div class="stars" id="stats"></div>
-    <div class="confetti-wrap" id="confettiWrap"></div>
+<div class="stars" id="stars"></div>
+<div class="confetti-wrap" id="confettiWrap"></div>
 
-    <header>
-        <div class="logo">
-            <svg width="36" height="36" viewBox="0 0 36 36" fill="none" aria-label="Country Clash logo">
-                <circle cx="18" cy="18" r="17" stroke="var(--primary)" stroke-width="2"/>
-                <path d="M9 14 C9 14 13 10 18 12 C23 14 27 10 27 10 L27 24 C27 24 23 28 18 26 C13 24 9 28 9 28 Z"
-                      fill="var(--primary)" opacity="0.3"/>
-                <path d="M9 14 L9 28" stroke="var(--primary)" stroke-width="1.5" stroke-linecap="round"/>
-                <path d="M27 10 L27 24" stroke="var(--primary)" stroke-width="1.5" stroke-linecap="round"/>
-                <circle cx="18" cy="18" r="3" fill="var(--gold)"/>
+<header>
+    <div class="logo">
+        <svg width="36" height="36" viewBox="0 0 36 36" fill="none">
+            <circle cx="18" cy="18" r="17" stroke="var(--primary)" stroke-width="2"/>
+            <path d="M9 14 C9 14 13 10 18 12 C23 14 27 10 27 10 L27 24 C27 24 23 28 18 26 C13 24 9 28 9 28 Z"
+                  fill="var(--primary)" opacity="0.3"/>
+            <path d="M9 14 L9 28" stroke="var(--primary)" stroke-width="1.5" stroke-linecap="round"/>
+            <path d="M27 10 L27 24" stroke="var(--primary)" stroke-width="1.5" stroke-linecap="round"/>
+            <circle cx="18" cy="18" r="3" fill="var(--gold)"/>
+        </svg>
+        <div>
+            Country Clash
+            <div class="logo-sub">Guess the bigger one</div>
+        </div>
+    </div>
+
+    <div class="header-right">
+        <div class="score-pill">
+            <span class="score-wins" id="scoreWins">0</span>
+            <span class="score-sep">/</span>
+            <span class="score-losses" id="scoreTotal">0</span>
+        </div>
+        <button class="theme-btn" id="themeBtn" aria-label="Switch theme">
+            <svg id="themeIcon" width="18" height="18" viewBox="0 0 24 24"
+                 fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
             </svg>
-            <div>
-                Country Clash
-                <div class="logo-sub">Guess the bigger one</div>
-            </div>
+        </button>
+    </div>
+</header>
 
-            <div class="header-right">
-                <div class="score-pill">
-                    <span class="score-wins" id="scoreWins">0</span>
-                    <span class="score-sep">/</span>
-                    <span class="score-losses" id="scoreTotal">0</span>
-                </div>
-                <button class="theme-btn" id="themeBtn" aria-label="Switch theme">
-                    <svg id="themeIcon" width="18" height="18" viewBox="0 0 24 24"
-                         fill="none" stroke="currentColor" stroke-width="2">
-                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
-                    </svg>
-                </button>
-            </div>
+<main id="gameArea">
+    <div class="cat-selector" id="catSelector">
+        <button class="cat-chip active" data-cat="area">🗺️ Площа</button>
+        <button class="cat-chip" data-cat="population">👥 Населення</button>
+        <button class="cat-chip" data-cat="gdp">💰 ВВП</button>
+        <button class="cat-chip" data-cat="density">📍 Густота</button>
+    </div>
+
+    <div class="round-info">
+        <span id="roundText">Раунд 1 / 10</span>
+        <div class="progress-bar-wrap" style="flex:1">
+            <div class="progress-bar-fill" id="progressFill" style="width:0%"></div>
         </div>
-    </header>
-
-    <main class="gameArea">
-        <div class="cat-selector" id="catSelector">
-            <button class="cat-chip active" data-cat="area">Площа</button>
-            <button class="cat-chip" data-cat="population">Населення</button>
-            <button class="cat-chip" data-cat="gdp">ВВП</button>
-            <button class="cat-chip" data-cat="density">Густота</button>
+        <div class="streak-bar">
+            <div class="streak-dots" id="streakDots"></div>
         </div>
+    </div>
 
-        <div class="round-info">
-            <span id="roundText">Раунд 1 / 10</span>
-            <div class="progress-bar-wrap" style="flex:1">
-                <div class="progress-bar-fill" id="progressFill" style="width: 0%"></div>
-            </div>
-            <div class="streak-bar">
-                <div class="streak-dots" id="streakDots"></div>
-            </div>
-        </div>
+    <div class="category-banner">
+        <div class="category-label">Категорія</div>
+        <div class="category-name" id="catName">Площа</div>
+        <div class="category-hint" id="catHint">Оберіть країну з більшою площею</div>
+    </div>
 
-        <div class="category-banner">
-            <div class="category-label">Категорія</div>
-            <div class="category-name" id="catName">Площа</div>
-            <div class="category-hint" id="catHint">Оберіть країну з більшою площею</div>
+    <div class="arena" id="arena">
+        <div class="country-card" id="cardA" role="button" tabindex="0">
+            <div class="result-badge win">✓ Більше!</div>
+            <div class="result-badge lose">✗</div>
+            <div class="card-flag" id="flagA">🌍</div>
+            <div class="card-name" id="nameA">Завантаження...</div>
+            <div class="card-region" id="regionA">...</div>
+            <div class="card-stat" id="statA1"></div>
+            <div class="card-stat" id="statA2"></div>
+            <div class="card-stat highlighted" id="statAMain"></div>
         </div>
 
-        <div class="arena" id="arena">
-            <div class="country-card" id="cardA" role="button" tabindex="0">
-                <div class="result-badge win">✓ Більше!</div>
-                <div class="result-badge lose">✗</div>
-                <div class="card-flag" id="flagA">🌍</div>
-                <div class="card-name" id="nameA">Завантаження...</div>
-                <div class="card-region" id="regionA">...</div>
-                <div class="card-stat" id="statA1"></div>
-                <div class="card-stat" id="statA2"></div>
-                <div class="card-stat highlighted" id="statAMain"></div>
-            </div>
+        <div class="vs-badge">VS</div>
 
-            <div class="vs-badge">VS</div>
-
-            <div class="country-card" id="cardB" role="button" tabindex="0">
-                <div class="result-badge win">✓ Більше!</div>
-                <div class="result-badge lose">✗</div>
-                <div class="card-flag" id="flagB">🌍</div>
-                <div class="card-name" id="nameB">Завантаження...</div>
-                <div class="card-region" id="regionB">...</div>
-                <div class="card-stat" id="statB1"></div>
-                <div class="card-stat" id="statB2"></div>
-                <div class="card-stat highlighted" id="statBMain"></div>
-            </div>
+        <div class="country-card" id="cardB" role="button" tabindex="0">
+            <div class="result-badge win">✓ Більше!</div>
+            <div class="result-badge lose">✗</div>
+            <div class="card-flag" id="flagB">🌍</div>
+            <div class="card-name" id="nameB">Завантаження...</div>
+            <div class="card-region" id="regionB">...</div>
+            <div class="card-stat" id="statB1"></div>
+            <div class="card-stat" id="statB2"></div>
+            <div class="card-stat highlighted" id="statBMain"></div>
         </div>
+    </div>
 
-        <div class="result-panel" id="resultPanel">
-            <div class="result-emoji" id="resultEmoji">🏆</div>
-            <div class="result-title" id="resultTitle">Правильно!</div>
-            <p class="result-explanation" id="resultExplanation"></p>
-            <button class="btn btn-primary" id="nextBtn">Наступний раунд →</button>
-        </div>
-    </main>
+    <div class="result-panel" id="resultPanel">
+        <div class="result-emoji" id="resultEmoji">🏆</div>
+        <div class="result-title" id="resultTitle">Правильно!</div>
+        <p class="result-explanation" id="resultExplanation"></p>
+        <button class="btn btn-primary" id="nextBtn">Наступний раунд →</button>
+    </div>
+</main>
 
-    <footer>Made by Frank · Country Clash</footer>
+<div id="endgame">
+    <div class="endgame-trophy">🏆</div>
+    <div class="endgame-title">Гру завершено!</div>
+    <div class="endgame-score" id="endScore">0/10</div>
+    <p class="endgame-msg" id="endMsg"></p>
+    <button class="btn btn-primary" id="playAgainBtn">🔄 Грати знову</button>
+</div>
 
-    <script src="./js/main.js"></script>
+<footer>Made by Frank · Country Clash</footer>
+
+<script src="js/main.js"></script>
 </body>
 </html>
