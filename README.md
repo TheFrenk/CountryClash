@@ -2,9 +2,21 @@
 
 > A geography guessing game — pick the country with the higher stat across 10 rounds.
 
+![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)
+![GitHub Pages](https://img.shields.io/badge/Hosted-GitHub%20Pages-222?logo=github)
+![Vanilla JS](https://img.shields.io/badge/Built%20with-Vanilla%20JS-f7df1e?logo=javascript&logoColor=000)
+
 **[🇺🇦 Українська версія нижче](#-country-clash-ua)**
 
-**[Live Demo](https://thefrenk.github.io/CountryClash/)**
+**[Live Demo →](https://thefrenk.github.io/CountryClash/)**
+
+---
+
+## About This Project
+
+This project was built as a **practical university assignment** at University.
+The goal was to create an interactive web application using vanilla JavaScript,
+external REST APIs, and OOP principles — without any frameworks or build tools.
 
 ---
 
@@ -57,8 +69,14 @@
 
 | API            | Endpoint                                                                | Key required |
 |----------------|-------------------------------------------------------------------------|--------------|
-| REST Countries | `https://restcountries.com/v3.1/all`                                    | ❌ No        |
-| World Bank GDP | `https://api.worldbank.org/v2/country/{cca2}/indicator/NY.GDP.MKTP.CD` | ❌ No        |
+| REST Countries | `https://restcountries.com/v3.1/all`                                    | No        |
+| World Bank GDP | `https://api.worldbank.org/v2/country/{cca2}/indicator/NY.GDP.MKTP.CD` | No        |
+
+## License
+
+This project is licensed under the [MIT License](LICENSE).
+
+---
 
 ---
 
@@ -66,7 +84,19 @@
 
 > Географічна гра на здогадку — обери країну з вищим показником за 10 раундів.
 
-**[Live Demo](https://thefrenk.github.io/CountryClash/)**
+![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)
+![GitHub Pages](https://img.shields.io/badge/Hosted-GitHub%20Pages-222?logo=github)
+![Vanilla JS](https://img.shields.io/badge/Built%20with-Vanilla%20JS-f7df1e?logo=javascript&logoColor=000)
+
+**[Live Demo →](https://thefrenk.github.io/CountryClash/)**
+
+---
+
+## Про проєкт
+
+Цей проєкт створено як **практичне завдання** в університеті.
+Мета — розробити інтерактивний вебзастосунок на чистому JavaScript
+з використанням зовнішніх REST API та принципів ООП — без фреймворків і збирачів.
 
 ---
 
@@ -119,5 +149,9 @@
 
 | API            | Ендпоінт                                                                | Ключ потрібен |
 |----------------|-------------------------------------------------------------------------|---------------|
-| REST Countries | `https://restcountries.com/v3.1/all`                                    | ❌ Ні         |
-| World Bank GDP | `https://api.worldbank.org/v2/country/{cca2}/indicator/NY.GDP.MKTP.CD` | ❌ Ні         |
+| REST Countries | `https://restcountries.com/v3.1/all`                                    | Ні         |
+| World Bank GDP | `https://api.worldbank.org/v2/country/{cca2}/indicator/NY.GDP.MKTP.CD` | Ні         |
+
+## Ліцензія
+
+Проєкт розповсюджується під ліцензією [MIT](LICENSE).
