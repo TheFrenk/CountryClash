@@ -4,6 +4,8 @@
 
 **[🇺🇦 Українська версія нижче](#-country-clash-ua)**
 
+**[Live Demo](https://thefrenk.github.io/CountryClash/)**
+
 ---
 
 ## How to Play
@@ -22,34 +24,49 @@
 - Streak tracker and round progress bar
 - Confetti animation on high scores
 - Fully responsive (mobile-friendly)
-- OOP architecture with ES Modules
+- OOP architecture with vanilla JS classes
 
 ## Project Structure
+
     CountryClash/
-    ├── index.html                ← page markup
-    ├── styles.css                ← all styles & animations
+    ├── index.html        ← page markup & game shell
+    ├── css/
+    │   └── main.css      ← all styles, themes & animations
     └── js/
-        ├── main.js               ← entry point
-        ├── Game.js               ← game loop & state
-        ├── Battle.js             ← comparison logic
-        ├── Country.js            ← country data model
-        ├── CountryRepository.js  ← API requests & cache
-        ├── UIRenderer.js         ← DOM updates & effects
-        ├── config.js             ← categories config
-        └── utils.js              ← number formatting helpers
+        └── main.js       ← full game logic (Country, Battle, UIRenderer, Game)
 
-## 🛠Tech Stack
+## Tech Stack
 
-| Layer      | Technology                          |
-|------------|-------------------------------------|
-| Markup     | HTML5                               |
-| Styles     | CSS3 (Custom Properties, Grid, Clamp) |
-| Logic      | Vanilla JavaScript (ES Modules)     |
-| Data       | REST Countries API + World Bank API |
+| Layer       | Technology                              |
+|-------------|-----------------------------------------|
+| Markup      | HTML5                                   |
+| Styles      | CSS3 (Custom Properties, Grid, Clamp)   |
+| Logic       | Vanilla JavaScript (ES2022, OOP)        |
+| Data        | REST Countries API + World Bank API     |
+| Hosting     | GitHub Pages                            |
+
+## OOP Architecture
+
+    Game
+     ├── CountryRepository  → fetches & caches Country objects
+     │    └── Country       → data model (area, population, gdp, density)
+     ├── Battle             → compares two Countries, determines winner
+     └── UIRenderer         → updates DOM, animations, confetti
+
+## APIs Used
+
+| API            | Endpoint                                                                | Key required |
+|----------------|-------------------------------------------------------------------------|--------------|
+| REST Countries | `https://restcountries.com/v3.1/all`                                    | ❌ No        |
+| World Bank GDP | `https://api.worldbank.org/v2/country/{cca2}/indicator/NY.GDP.MKTP.CD` | ❌ No        |
+
+---
 
 # 🌍 Country Clash [UA]
 
 > Географічна гра на здогадку — обери країну з вищим показником за 10 раундів.
+
+**[Live Demo](https://thefrenk.github.io/CountryClash/)**
 
 ---
 
@@ -69,22 +86,16 @@
 - Трекер серії відповідей і прогрес-бар раундів
 - Анімація конфеті при високому результаті
 - Адаптивний дизайн (підтримка мобільних)
-- ООП-архітектура з ES Modules
+- ООП-архітектура на чистому JS
 
 ## Структура проєкту
 
     CountryClash/
-    ├── index.html                ← розмітка сторінки
-    ├── styles.css                ← усі стилі й анімації
+    ├── index.html        ← розмітка сторінки
+    ├── css/
+    │   └── main.css      ← усі стилі, теми й анімації
     └── js/
-        ├── main.js               ← точка входу
-        ├── Game.js               ← ігровий цикл і стан
-        ├── Battle.js             ← логіка порівняння
-        ├── Country.js            ← модель даних країни
-        ├── CountryRepository.js  ← запити до API та кеш
-        ├── UIRenderer.js         ← оновлення DOM та ефекти
-        ├── config.js             ← конфіг категорій
-        └── utils.js              ← допоміжне форматування чисел
+        └── main.js       ← вся ігрова логіка (Country, Battle, UIRenderer, Game)
 
 ## Технічний стек
 
@@ -92,5 +103,21 @@
 |-------------|-----------------------------------------|
 | Розмітка    | HTML5                                   |
 | Стилі       | CSS3 (Custom Properties, Grid, Clamp)   |
-| Логіка      | Vanilla JavaScript (ES Modules)         |
+| Логіка      | Vanilla JavaScript (ES2022, OOP)        |
 | Дані        | REST Countries API + World Bank API     |
+| Хостинг     | GitHub Pages                            |
+
+## ООП-архітектура
+
+    Game
+     ├── CountryRepository  → завантажує й кешує об'єкти Country
+     │    └── Country       → модель даних (area, population, gdp, density)
+     ├── Battle             → порівнює дві Country, визначає переможця
+     └── UIRenderer         → оновлює DOM, анімації, конфеті
+
+## API
+
+| API            | Ендпоінт                                                                | Ключ потрібен |
+|----------------|-------------------------------------------------------------------------|---------------|
+| REST Countries | `https://restcountries.com/v3.1/all`                                    | ❌ Ні         |
+| World Bank GDP | `https://api.worldbank.org/v2/country/{cca2}/indicator/NY.GDP.MKTP.CD` | ❌ Ні         |
